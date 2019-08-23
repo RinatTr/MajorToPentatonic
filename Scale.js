@@ -8,44 +8,25 @@ class Scale {
     this.root = root_input;
   }
 
-  addSharps() {
-    let root = this.root[0].toLowerCase();
-    let sharpIdx = 3;
-    for (let i = 0; i < this.sharps[root]; i++) {
-      sharpIdx = sharpIdx % this.notes_display.length
-      this.notes_display[sharpIdx] = this.notes_display[sharpIdx] + "#";
-      sharpIdx += 4;
-    }
-    console.log(this.notes_display)
-  }
-
-  addFlats() {
-    let root = this.root[0].toLowerCase();
-    let flatIdx = 6;
-    for (let i = 0; i < this.flats[root]; i++) {
-      flatIdx = flatIdx % this.notes_display.length
-      this.notes_display[flatIdx] = this.notes_display[flatIdx] + "b";
-      flatIdx += 3;
-    }
-    console.log(this.notes_display)
-
-  }
-
   addAccidentals(type) {
-    let root = this.root[0].toLowerCase();
-    let accidentalIdx, reference, symbol, interval;
+    let accidentalIdx, reference, symbol, interval, root;
     switch(type) {
       case "#":
         accidentalIdx = 3;
         reference = this.sharps;
         symbol = "#";
         interval = 4;
+        root = this.root[0].toLowerCase();
+        if (this.root[1] === '#') {
+          root += 's';
+        }
         break;
       case "b":
         accidentalIdx = 6;
         reference = this.flats;
         symbol = "b";
         interval = 3;
+        root = this.root.toLowerCase();
         break;
     }
     for (let i = 0; i < reference[root]; i++) {
@@ -53,6 +34,7 @@ class Scale {
       this.notes_display[accidentalIdx] = this.notes_display[accidentalIdx] + symbol;
       accidentalIdx += interval;
     }
+    console.log(this.notes_display);
   }
 
   setRootPosition() {
@@ -60,4 +42,4 @@ class Scale {
   }
 
 }
-let scale = new Scale("g").addAccidentals("#")
+let scale = new Scale("f#").addAccidentals("#")
