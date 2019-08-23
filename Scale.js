@@ -43,7 +43,13 @@ class Scale {
     this.notes_display = temp.splice(pos % this.notes_display.length).concat(temp)
   }
 
+  display() {
+    let root = this.root[0].toUpperCase();
+    let symbol = this.root.length > 1 ? this.root[1] : "";
+    return `\n🎺🎺🎺 ${root + symbol)} major scale: ${this.notes_display.join(', ')}\n
+    Available Pentatonic Scales: ${this.notes_display[1]} minor, ${this.notes_display[2]} minor, ${this.notes_display[5]} minor\n`;
+  }
+
 }
-let scale1 = new Scale("g#")
-scale1.addAccidentals("#")
-scale1.rotateToRootPosition()
+
+module.exports = { Scale }
