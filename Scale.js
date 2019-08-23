@@ -11,23 +11,19 @@ class Scale {
 
   addAccidentals(type) {
     let accidentalIdx, reference, symbol, interval, root;
+    root = this.root.toLowerCase();
     switch(type) {
       case "#":
         accidentalIdx = 3;
         reference = this.sharps;
         symbol = "#";
         interval = 4;
-        root = this.root[0].toLowerCase();
-        if (this.root[1] === '#') {
-          root += 's';
-        }
         break;
       case "b":
         accidentalIdx = 6;
         reference = this.flats;
         symbol = "b";
         interval = 3;
-        root = this.root.toLowerCase();
         break;
     }
     for (let i = 0; i < reference[root]; i++) {
@@ -46,10 +42,14 @@ class Scale {
   display() {
     let root = this.root[0].toUpperCase();
     let symbol = this.root.length > 1 ? this.root[1] : "";
-    return `\n🎺🎺🎺 ${root + symbol)} major scale: ${this.notes_display.join(', ')}\n
+    return `\n🎺🎺🎺 ${root + symbol} major scale: ${this.notes_display.join(', ')}\n
     Available Pentatonic Scales: ${this.notes_display[1]} minor, ${this.notes_display[2]} minor, ${this.notes_display[5]} minor\n`;
   }
 
 }
 
+let scale1 = new Scale("bb")
+scale1.addAccidentals("b")
+scale1.rotateToRootPosition()
+console.log(scale1.display())
 module.exports = { Scale }

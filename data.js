@@ -1,27 +1,27 @@
 const sharps = {
-  c: 0,
-  g: 1,
-  d: 2,
-  a: 3,
-  e: 4,
-  b: 5,
-  fs: 6,
-  cs: 7,
-  gs: 8,
-  ds: 9,
-  as: 10
+  'c': 0,
+  'g': 1,
+  'd': 2,
+  'a': 3,
+  'e': 4,
+  'b': 5,
+  'f#': 6,
+  'c#': 7,
+  'g#': 8,
+  'd#': 9,
+  'a#': 10
 };
 
 const flats = {
-  c: 0,
-  f: 1,
-  bb: 2,
-  eb: 3,
-  ab: 4,
-  db: 5,
-  gb: 6,
-  cb: 7,
-  fb: 8
+  'c': 0,
+  'f': 1,
+  'bb': 2,
+  'eb': 3,
+  'ab': 4,
+  'db': 5,
+  'gb': 6,
+  'cb': 7,
+  'fb': 8
 };
 
 const rootPositions = {
