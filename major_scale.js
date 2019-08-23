@@ -2,8 +2,8 @@
 const readline = require('readline-Sync');
 
 const circleOfFifths = (userInput) => {
-  let root = userInput.charAt(0).toLowerCase();
-  if (userInput.charAt(1) === '#') {
+  let root = userInput[0].toLowerCase();
+  if (userInput[1] === '#') {
     root += 's';
   }
   let numAcc = {
@@ -21,11 +21,11 @@ const circleOfFifths = (userInput) => {
   }
   let notes = ['C','D','E','F','G','A','B'];
   let j = 0;
-  for (let i = 0; i<numAcc[root]; i++) {
-    if (j >= notes.length-3) {
+  for (let i = 0; i < numAcc[root]; i++) {
+    if (j >= notes.length - 3) {
      j -= notes.length;
     }
-    notes[j+3] = notes[j+3]+"#";
+    notes[j + 3] = notes[j + 3] + "#";
     j += 4;
   }
   let k = notes.indexOf(userInput.toUpperCase());
@@ -57,14 +57,14 @@ const circleOfFourths = (userInput) => {
   }
   let notes = ['C','D','E','F','G','A','B'];
   let j = 0;
-  for (let i = 0; i<numAcc[root]; i++) {
-    if (j >= notes.length-6) {
+  for (let i = 0; i < numAcc[root]; i++) {
+    if (j >= notes.length - 6) {
      j -= notes.length;
     }
-    notes[j+6] = notes[j+6]+"b";
+    notes[j + 6] = notes[j + 6]+"b";
     j += 3;
   }
-  let k = notes.indexOf(userInput.charAt(0).toUpperCase()+userInput.charAt(1));
+  let k = notes.indexOf(userInput[0].toUpperCase() + userInput[1]);
   let scale = notes.map(note => {
     let output = [];
     if (k >= notes.length) {
@@ -75,7 +75,7 @@ const circleOfFourths = (userInput) => {
     return output;
   });
 
-  return `\n🎺🎺🎺 ${userInput.charAt(0).toUpperCase()+userInput.charAt(1)} major scale: ${scale.join(', ')}\n
+  return `\n🎺🎺🎺 ${userInput[0].toUpperCase() + userInput[1]} major scale: ${scale.join(', ')}\n
   Available Pentatonic Scales: ${scale[1]} minor, ${scale[2]} minor, ${scale[5]} minor\n`;
 }
 
@@ -104,12 +104,11 @@ let fourths = {
   'fb':8
 }
 
-
 const buildScale = () => {
   const userInput = readline.question(`Input the root of a major scale: `);
-  if (Object.keys(fifths).includes(userInput.toLowerCase())) {
+  if (fifths[userInput.toLowerCase()]) {
     return console.log(circleOfFifths(userInput));
-  } else if (Object.keys(fourths).includes(userInput.toLowerCase())) {
+  } else if (fourths[userInput.toLowerCase()]) {
     return console.log(circleOfFourths(userInput));
   } else {
      setTimeout(buildScale,1000);
