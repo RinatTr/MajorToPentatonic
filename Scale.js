@@ -37,9 +37,16 @@ class Scale {
     console.log(this.notes_display);
   }
 
-  setRootPosition() {
-
+  rotateToRootPosition() {
+    let pos = this.notes_display.indexOf(this.root.toUpperCase());
+    this.notes_display.splice(pos % this.notes_display.length).concat(this.notes_display)
+    // const rotate = (arr, times = 1) => {
+    // 	let dup = arr.slice(0);
+    // 	return dup.splice(times % arr.length).concat(dup)
+    // }
+    // let scale = rotate(notes, rootPosition)
+    console.log(this.notes_display)
   }
 
 }
-let scale = new Scale("f#").addAccidentals("#")
+let scale = new Scale("f#").addAccidentals("#").rotateToRootPosition()

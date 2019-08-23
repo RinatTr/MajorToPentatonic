@@ -24,8 +24,19 @@ const flats = {
   fb: 8
 };
 
+const rootPositions = {
+  c: 0,
+  d: 1,
+  e: 2,
+  f: 3,
+  g: 4,
+  a: 5,
+  b: 6,
+}
+
 const notes = ['C','D','E','F','G','A','B'];
 
 module.exports = {  sharps,
                     flats,
-                    notes  }
+                    notes,
+                    rootPositions }
