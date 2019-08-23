@@ -6,7 +6,7 @@ const circleOfFifths = (userInput) => {
   if (userInput[1] === '#') {
     root += 's';
   }
-  let numAcc = {
+  let numberOfSharps = {
     'c':0,
     'g':1,
     'd':2,
@@ -21,7 +21,7 @@ const circleOfFifths = (userInput) => {
   }
   let notes = ['C','D','E','F','G','A','B'];
   let j = 0;
-  for (let i = 0; i < numAcc[root]; i++) {
+  for (let i = 0; i < numberOfSharps[root]; i++) {
     if (j >= notes.length - 3) {
      j -= notes.length;
     }
@@ -44,7 +44,7 @@ const circleOfFifths = (userInput) => {
 }
 const circleOfFourths = (userInput) => {
   let root = userInput.toLowerCase();
-  let numAcc = {
+  let numberOfFlats = {
     'c':0,
     'f':1,
     'bb':2,
@@ -57,7 +57,7 @@ const circleOfFourths = (userInput) => {
   }
   let notes = ['C','D','E','F','G','A','B'];
   let j = 0;
-  for (let i = 0; i < numAcc[root]; i++) {
+  for (let i = 0; i < numberOfFlats[root]; i++) {
     if (j >= notes.length - 6) {
      j -= notes.length;
     }
