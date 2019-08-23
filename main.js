@@ -8,14 +8,18 @@ const buildScale = () => {
   const lcInput = userInput.toLowerCase()
   let type;
   if (sharps[lcInput] || lcInput === "c") {
-    //
-    return console.log(circleOfFifths(userInput));
+    type = "#";
   } else if (flats[lcInput]) {
-    return console.log(circleOfFourths(userInput));
+    type = "b";
   } else {
      setTimeout(buildScale,1000);
      return console.log(`\n💥 '${userInput}' is an invalid input. Please Try Again.💥\n`)
   }
+
+  let scale = new Scale(lcInput);
+  scale.addAccidentals(type);
+  scale.rotateToRootPosition();
+  console.log(scale.display());
 }
 
 buildScale()

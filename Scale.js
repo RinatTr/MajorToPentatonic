@@ -48,8 +48,4 @@ class Scale {
 
 }
 
-let scale1 = new Scale("bb")
-scale1.addAccidentals("b")
-scale1.rotateToRootPosition()
-console.log(scale1.display())
 module.exports = { Scale }
