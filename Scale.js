@@ -35,7 +35,6 @@ class Scale {
       this.notes_display[accidentalIdx] = this.notes_display[accidentalIdx] + symbol;
       accidentalIdx += interval;
     }
-    // console.log(this.notes_display);
   }
 
   rotateToRootPosition() {
@@ -47,7 +46,4 @@ class Scale {
 }
 let scale1 = new Scale("g#")
 scale1.addAccidentals("#")
-console.log(scale1.notes_display);
 scale1.rotateToRootPosition()
-console.log(scale1.notes_display);
-// scale.rotateToRootPosition()
