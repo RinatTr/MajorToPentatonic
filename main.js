@@ -4,7 +4,7 @@ const { Scale } = require('./Scale.js');
 const { sharps, flats } = require('./data.js');
 
 const buildScale = () => {
-  const userInput = readline.question(`Input the root of a major scale: `);
+  const userInput = readline.question(`Input the root of a major scale (ex. G, Bb, A# ...): `);
   const lcInput = userInput.toLowerCase()
   let type;
   if (sharps[lcInput] || lcInput === "c") {
