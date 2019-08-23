@@ -28,16 +28,22 @@ const circleOfFifths = (userInput) => {
     notes[j + 3] = notes[j + 3] + "#";
     j += 4;
   }
-  let k = notes.indexOf(userInput.toUpperCase());
-  let scale = notes.map(note => {
-    let output = [];
-    if (k >= notes.length) {
-      k -= notes.length;
-    }
-    output.push(notes[k]);
-    k++;
-    return output;
-  });
+  let rootPosition = notes.indexOf(userInput.toUpperCase());
+  const rotate = (arr, times = 1) => {
+  	let dup = arr.slice(0);
+  	return dup.splice(times % arr.length).concat(dup)
+  }
+  let scale = rotate(notes, rootPosition)
+  // let scale = notes.map(note => {
+  //   let output = "";
+  //   if (rootPosition >= notes.length) {
+  //     rootPosition -= notes.length;
+  //   }
+  //   output += notes[rootPosition];
+  //   rootPosition++;
+  //   return output;
+  // });
+
 
   return `\n🎺🎺🎺 ${userInput.toUpperCase()} major scale: ${scale.join(', ')}\n
   Available Pentatonic Scales: ${scale[1]} minor, ${scale[2]} minor, ${scale[5]} minor\n`;
@@ -106,9 +112,10 @@ let fourths = {
 
 const buildScale = () => {
   const userInput = readline.question(`Input the root of a major scale: `);
-  if (fifths[userInput.toLowerCase()]) {
+  const lcInput = userInput.toLowerCase()
+  if (fifths[lcInput] || lcInput === "c") {
     return console.log(circleOfFifths(userInput));
-  } else if (fourths[userInput.toLowerCase()]) {
+  } else if (fourths[lcInput]) {
     return console.log(circleOfFourths(userInput));
   } else {
      setTimeout(buildScale,1000);
